@@ -1,36 +1,68 @@
 // Single screen with a simple toggle between Login and Register
-import './styles.css'
-import { useState } from "react";
+import "./styles.module.css";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Signup from "./pages/Signup";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+import Layout from "../src/components/Layout";
+import ResetPassword from "./components/ResetPassword";
+import ForgetPassword from "./pages/ForgetPassword";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ProductList } from "./components/ProductList";
+import CategoriesList from "./components/CategoriesList";
+
+// import { useNavigate } from 'react-router-dom';
 
 export default function App() {
-    // mode controls which form is visible 
-    const [mode, setMode] = useState('login'); // login | register 
+  return (
+    <>
+      <BrowserRouter>
+        <div>
+          <Routes>
+            <Route path="/" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/layout/product-list" element={<ProductList />} />
+            <Route path="/layout/category-list" element={<CategoriesList />} />
+            {/* for now these 2 routes are not in protected for testing purposes but they need to be protected routes */}
 
-    return (
-        <div className="container">
-            <h1>Welcome to the App</h1>
+            {/* Protected Routes */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/layout"
+              element={
+                <ProtectedRoute>
+                  <Layout />
+                </ProtectedRoute>
+              }
+            />
 
-        {/* Tabs  */}
-        <div className="tabs">
-            <button className={mode === 'login' ? 'tab active' : 'tab'} 
-            onClick={() => setMode('login')}>Login</button>
-
-            <button
-            className={mode === 'register' ? 'tab active' : 'tab'}
-            onClick={() => setMode('register')}>Register</button>
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route path="/forget-pwd" element={<ForgetPassword />}></Route>
+            <Route path="/reset-pwd" element={<ResetPassword />}></Route>
+          </Routes>
         </div>
-
-        {/* Render the active form  */}
-        {mode === 'login' ? <Login/> : <Register/>}
-
-        {/* Small note to remind where backend should run */}
-      <p className="hint">
-        Make sure your backend is running on <code>http://localhost:5000</code> with endpoints
-        <code>/api/auth/login</code> and <code>/api/auth/register</code>.
-      </p>
-
-        </div>
-    )
+      </BrowserRouter>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </>
+  );
 }
