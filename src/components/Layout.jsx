@@ -178,7 +178,7 @@ const layout = () => {
           <h6 className="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-dark" href="/layout/product-list">
+          <a className="nav-link text-dark" href="/layout/product-page">
             <i className="material-symbols-rounded opacity-5">person</i>
             <span className="nav-link-text ms-1">Product</span>
           </a>

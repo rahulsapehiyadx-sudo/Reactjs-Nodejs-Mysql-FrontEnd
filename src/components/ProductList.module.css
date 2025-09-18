@@ -1,0 +1,98 @@
+.container {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.input,
+.select {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.input:focus,
+.select:focus {
+  border-color: #5e72e4;
+  box-shadow: 0 0 6px rgba(94, 114, 228, 0.4);
+  outline: none;
+}
+
+.button {
+  grid-column: 1 / -1;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #5e72e4, #825ee4);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.productList {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.productItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fe;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.productItem:hover {
+  transform: scale(1.02);
+}
+
+.actions button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.actions button:first-child {
+  background: #f6c23e;
+  color: white;
+}
+
+.actions button:last-child {
+  background: #e74c3c;
+  color: white;
+}

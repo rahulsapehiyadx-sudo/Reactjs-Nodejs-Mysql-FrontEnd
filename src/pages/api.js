@@ -26,7 +26,7 @@ export async function registerUser({ username, email, password }) {
     toast.success(res.data.message || "Registered successfully!");
     return { ok: true, data: res.data };
   } catch (error) {
-    toast.error(error.response?.data?.message || "Registration failed! ");
+    toast.error(error.response?.data?.message || "Registration failed!");
     return { ok: false, data: null };
   }
 
@@ -104,7 +104,7 @@ export const updateProduct = async (id, product) => {
   }
 };
 
-export const deleteProduct = async (id) => {
+export const deleteProduct = async (id, product) => {
   try {
     const res = await API.delete(`/deleteProductby-Id/${id}`, product);
     return res.data;
@@ -112,4 +112,4 @@ export const deleteProduct = async (id) => {
     console.error("Error deleting the product", error);
     throw error;
   }
-};
+};   

@@ -16,6 +16,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ProductList } from "./components/ProductList";
 import CategoriesList from "./components/CategoriesList";
+import ProductPage from "./pages/ProductPage";
 
 // import { useNavigate } from 'react-router-dom';
 
@@ -29,6 +30,8 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/layout/product-list" element={<ProductList />} />
             <Route path="/layout/category-list" element={<CategoriesList />} />
+            <Route path="/layout/product-page" element={<ProductPage />} />
+            {/* once tested then add the Product page to the protected routes  */}
             {/* for now these 2 routes are not in protected for testing purposes but they need to be protected routes */}
 
             {/* Protected Routes */}
